@@ -1,18 +1,24 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink } from "react-router-dom";
+import "../App.css";
 
-const Header = () => {
+export default function Header({ rightSlot }) {
   return (
     <header className="app-header">
+      {/* Left: title + nav */}
       <nav className="app-nav">
-        <NavLink to="/" end className="nav-link">
+        <span style={{ color: "white", fontWeight: 800 }}>Employee Portal</span>
+
+        <NavLink className="nav-link" to="/">
           Home
         </NavLink>
-        <NavLink to="/employee-mgmt" className="nav-link">
-          EmployeeMgmt
+
+        <NavLink className="nav-link" to="/employee-mgmt">
+          Employee Mgmt
         </NavLink>
       </nav>
-    </header>
-  )
-}
 
-export default Header
+      {/* Right: auth controls */}
+      <div className="header-right">{rightSlot}</div>
+    </header>
+  );
+}
